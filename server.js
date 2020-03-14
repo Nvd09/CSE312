@@ -6,11 +6,15 @@ path is used for acessing files. Documentation -> https://nodejs.org/api/path.ht
 */
 var express = require('express');
 
-//var path = require('path');
+var path = require('path');
 
 var app = express();
 
 app.use(express.static('public'));
+app.get("/", function (req, res) {
+  res.sendFile(__dirname + "/welcome.html");
+})
+
 app.use("/signin", express.static('welcome.html'));
 app.use("/chat", express.static('chatui.html'));
 
