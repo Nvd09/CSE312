@@ -12,6 +12,8 @@ var app = express();
 
 app.use(express.static('public'));
 
+app.use("/", express.static('homepage.html'));
+app.use("/profile", express.static('user_profile.html'));
 app.use("/signin", express.static('welcome.html'));
 app.use("/chat", express.static('chatui.html'));
 
