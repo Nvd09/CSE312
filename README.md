@@ -3,7 +3,7 @@
       This phase of the project goes over the basic HTML and CSS for the Web applications. This phase of the project doesn't have any functionality. It just shows a rough idea of what the web application would look like. 
       
    This phase has 5 criterions and each of them contains specific functionality that will help us to reach the end goal for our site. 
-The first criteria's HTML and CSS are satisfied in this page. When we goto the index page, our application opens up with user accounts. 
+The first criteria's HTML and CSS are satisfied in this page. When we goto the welcome.html page, our application opens up with user accounts. 
 There is a sign in and sign up option that allows users to sign up if they're not already members and sign in option allows them to login to
 their pre-existing accounts. 
 
