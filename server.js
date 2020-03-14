@@ -6,7 +6,7 @@ path is used for acessing files. Documentation -> https://nodejs.org/api/path.ht
 */
 var express = require('express');
 
-var path = require('path');
+
 
 var app = express();
 
