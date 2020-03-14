@@ -1,0 +1,8 @@
+Express is a javascript framework for Node.js application that allows us to build our server. In the server, we've used express to render our front end from the 
+server. We have used express.static() function to serve static files such as images, css etc that exist in our public directory. (line 13 in server.js). In server.js, We also used express.use() to set up route and render our static html files. (Line 14 - 18 in server.js)
+
+Documentation Link - https://expressjs.com/en/4x/api.html
+
+Github Link - https://github.com/expressjs/expressjs.com/tree/gh-pages/_includes/api/en/4x
+
+License - MIT Licensed

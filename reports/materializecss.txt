@@ -1,7 +1,6 @@
 
 We have used MaterializedCSS, a front end framework which allows us to incorporate
-material design in our social media app. This is the only one framework that we've used in the front end
-
+material design in our social media app. This is the only one framework that we've used in the front end. In our all html files including welcome.html, chatui.html, homepage.html, user_profile.html, we have used libraries from Materializecss. We've selected our theme as deep-purple accent (a materializecss class).
 
 Documentation Link : 
   
