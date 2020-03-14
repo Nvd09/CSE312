@@ -11,7 +11,6 @@ var path = require('path');
 var app = express();
 
 app.use(express.static('public'));
-
 app.use("/signin", express.static('welcome.html'));
 app.use("/chat", express.static('chatui.html'));
 

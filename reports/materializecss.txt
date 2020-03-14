@@ -1,0 +1,15 @@
+
+We have used MaterializedCSS, a front end framework which allows us to incorporate
+material design in our social media app. This is the only one framework that we've used in the front end
+
+
+Documentation Link : 
+  
+  https://materializecss.com/getting-started.html
+
+Github Link: 
+
+  https://github.com/Dogfalo/materialize
+
+License: MIT Licensed
+
