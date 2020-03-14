@@ -11,11 +11,15 @@ var path = require('path');
 var app = express();
 
 app.use(express.static('public'));
-
-app.use("/", express.static('homepage.html'));
+app.get("/", function (req, res) {
+  res.sendFile(__dirname + "/welcome.html");
+})
 app.use("/profile", express.static('user_profile.html'));
 app.use("/signin", express.static('welcome.html'));
 app.use("/chat", express.static('chatui.html'));
+app.use("/homepage.html", express.static('homepage.html'));
+app.use("/chatui.html", express.static('chatui.html'));
+app.use("/user_profile.html", express.static('user_profile.html'));
 
 app.listen(8000, function() {
     console.log("Server is running on Port: " + 8000);
