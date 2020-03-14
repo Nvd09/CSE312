@@ -1,6 +1,0 @@
-Path is a Node.js module that has helped us to access different 
-fles from our server.
-
-Documentation Link - https://nodejs.org/api/path.html#path_path
-
-License: MIT Licensed
