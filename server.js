@@ -7,8 +7,19 @@ path is used for acessing files. Documentation -> https://nodejs.org/api/path.ht
 var express = require('express');
 
 var path = require('path');
-
+var mongoose = require('mongoose');
 var app = express();
+const db = require("./config/database").mongoURI;
+var User = require('./user.model');
+mongoose
+  .connect(
+    db,
+    { useNewUrlParser: true,
+     useUnifiedTopology: true 
+    }
+  )
+  .then(() => console.log("MongoDB successfully connected"))
+  .catch(err => console.log(err));
 
 app.use(express.static('public'));
 app.get("/", function (req, res) {
