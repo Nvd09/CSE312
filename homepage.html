@@ -10,6 +10,7 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
 
     <title>Document</title>
 </head>
@@ -50,26 +51,46 @@
                     </div>
                     <br/>
                     <div class="left">
-                        <button class="btn waves-effect waves-light deep-purple accent-4" type="submit" >3 Likes
+                       
+                        <button onclick="voting();" class="btn waves-effect waves-light deep-purple accent-4">Like
+                            
                             <i class="material-icons right">thumb_up</i>
-                        </button>
+                        </button>  
+                         <div><p id="votes">0</p> <p>person liked this</p></div> 
                     </div><br/>
-                    <div class="input-field center" >
-                        <i class="material-icons prefix">comment</i>
-                        <textarea id="comment" class="materialize-textarea"></textarea>
-                        <label for="comment">Your Comment </label>
+
+                    <form enctype="multipart/form-data" id="myForm" >
+                        <label style="color:white" id = "myInput" for="form-chat">Chat: </label>
+                        <input id="form-chat" type="text" name="message">
+                        
+                    </form>
+
+
+                    <div class="input-field left" >
+
+                        <form enctype="multipart/form-data" id="myForm" >
+                            <label style="color:white" id = "myInput" for="form-comment">Comment: </label>
+                            <input id="form-comment" type="text" name="message">
+        
+                        </form>
                     </div>
                     <div class="right">
-                        <button class="btn waves-effect waves-light deep-purple accent-4" type="submit" name="action">
+                        <button onclick="sendMessageWithForm();" class="btn waves-effect waves-light deep-purple accent-4" type="submit">
                             <i class="material-icons right">send</i>
                         </button>
                     </div>
-                    
                     
                 </form>
             </div>
         </div>
     </div>   
+    <br/>
+    <button onclick="commentContent();">
+        Update Comments
+    </button>
+    <div style ="color:black"id="chat"></div>
+</br>
 </section>
+<script src="voting.js"></script>
 </body>
 </html>

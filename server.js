@@ -5,10 +5,15 @@ path is used for acessing files. Documentation -> https://nodejs.org/api/path.ht
 
 */
 var express = require('express');
-
+var socket = require('socket.io');
 
 
 var app = express();
+var server = app.listen(8000, function() {
+    console.log("Server is running on Port: " + 8000);
+});
+
+
 
 app.use(express.static('public'));
 app.get("/", function (req, res) {
@@ -20,8 +25,18 @@ app.use("/chat", express.static('chatui.html'));
 app.use("/homepage.html", express.static('homepage.html'));
 app.use("/chatui.html", express.static('chatui.html'));
 app.use("/user_profile.html", express.static('user_profile.html'));
+app.use("/voting.js", express.static('voting.js'));
+app.use("/IMG_20180922_192802.jpeg", express.static('IMG_20180922_192802.jpeg'));
 
-app.listen(8000, function() {
-    console.log("Server is running on Port: " + 8000);
+
+//Socket Setup
+
+
+
+var io= socket(server);
+
+io.on('connection', function(socket){
+  console.log('Socket Conneection has been made');
 });
+
 
