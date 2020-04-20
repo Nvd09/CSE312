@@ -1,5 +1,5 @@
 //Make Connection 
-var socket = io.connect('http://localhost:7004/homepage.html');
+var socket = io.connect('http://localhost:8000/homepage.html');
 
 var comment = document.getElementById("comment");
 var output = document.getElementById('output');
