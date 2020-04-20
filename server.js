@@ -5,6 +5,7 @@ path is used for acessing files. Documentation -> https://nodejs.org/api/path.ht
 
 */
 var express = require('express');
+<<<<<<< HEAD
 const multer = require('multer');
 var path = require('path');
 var mongoose = require('mongoose');
@@ -18,6 +19,10 @@ var storage = multer.diskStorage({
  
     cb(null, 'image'+ '-' + Date.now() )
   }
+=======
+
+
+>>>>>>> 7f061ba97d01188465615d2fdb3e500afba3c40c
 
 })
  
@@ -39,6 +44,7 @@ app.use(express.static('public'));
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/welcome.html");
 })
+<<<<<<< HEAD
 
 
 app.post('/upload-image', upload.single('profile-picture'), (req, res) => {
@@ -68,11 +74,15 @@ app.post('/upload-image', upload.single('profile-picture'), (req, res) => {
 
 app.use("/profile", express.static('user_profile.html'));
 
+=======
+app.use("/profile", express.static('user_profile.html'));
+>>>>>>> 7f061ba97d01188465615d2fdb3e500afba3c40c
 app.use("/signin", express.static('welcome.html'));
 app.use("/chat", express.static('chatui.html'));
 app.use("/homepage.html", express.static('homepage.html'));
 app.use("/chatui.html", express.static('chatui.html'));
 app.use("/user_profile.html", express.static('user_profile.html'));
+<<<<<<< HEAD
 app.get('/retrieve-image', (req, res) => {
  Image.find(function(err, images) {
         if (err) {
@@ -84,6 +94,8 @@ app.get('/retrieve-image', (req, res) => {
  
 
 });
+=======
+>>>>>>> 7f061ba97d01188465615d2fdb3e500afba3c40c
 
 app.listen(8000, function() {
     console.log("Server is running on Port: " + 8000);
