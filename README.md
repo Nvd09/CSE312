@@ -16,6 +16,7 @@ shows who's submitting all the multimedia content.
    The fourth criteria is met rhought the profile html file which allows users to check their own profile as well as others profiles so they can be marked. A user can do differnet things depending on the marking such as add, follow or block users.
    The fifth criteria allows users to send direct messages to another user and the messages can only be seen between those two users specifically. There's no functionality for any of these criterias as of now as they'll be implemented in further phases.
       
+<<<<<<< HEAD
       
 Phase 2:
 Second Criteria:
@@ -26,3 +27,11 @@ Second Criteria:
 3)The image details such as image name and image_created is saved in our mongodb database and can be retrieved by going to http://localhost:8000/retrieve-image
 
       
+=======
+Phase 2:
+Second Criteria: 
+
+1)go to http://localhost:8000/homepage.html and upload a image in the first button. The image will be saved on the disk and it can be downloaded.
+
+3)The image details such as image name and image_created is saved in our mongodb database and can be retrieved by going to http://localhost:8000/retrieve-image  
+>>>>>>> 3dfa162ee21260ce5b662270b61858c542a98155
