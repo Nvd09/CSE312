@@ -44,7 +44,7 @@ mongoose
   )
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
-=======
+
 var server = app.listen(7004, function() {
     console.log("Server is running on Port: " + 7004);
 });
@@ -54,7 +54,7 @@ var server = app.listen(7004, function() {
 app.use(express.static('public'));
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/welcome.html");
-<<<<<<< HEAD
+
 })
 
 
@@ -89,7 +89,7 @@ app.post('/upload-image', upload.single('profile-picture'), (req, res) => {
 app.post("/homepage.html", function (req, res) {
   res.sendFile(__dirname + "/homepage.html");
 });
->>>>>>> origin/HomepageJS
+
 app.use("/profile", express.static('user_profile.html'));
 
 app.use("/profile", express.static('user_profile.html'));
