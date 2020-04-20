@@ -14,7 +14,7 @@ var file_system = require('fs');
 var storage = multer.diskStorage({
 
 var socket = require('socket.io');
->>>>>>> origin/HomepageJS
+
 
   destination: function (req, file, cb) {
     cb(null, 'uploads')
@@ -32,7 +32,7 @@ var socket = require('socket.io');
  
 var upload = multer({ storage: storage })
 var app = express();
-<<<<<<< HEAD
+
 const db = require("./config/database").mongoURI;
 var Image = require('./user.model');
 mongoose
@@ -50,7 +50,6 @@ var server = app.listen(7004, function() {
 });
 
 
->>>>>>> origin/HomepageJS
 
 app.use(express.static('public'));
 app.get("/", function (req, res) {
@@ -85,7 +84,7 @@ app.post('/upload-image', upload.single('profile-picture'), (req, res) => {
      
   })
 
-=======
+
 });
 app.post("/homepage.html", function (req, res) {
   res.sendFile(__dirname + "/homepage.html");
@@ -106,7 +105,7 @@ app.use("/user_profile.html", express.static('user_profile.html'));
 app.use("/voting.js", express.static('voting.js'));
 app.use("/IMG_20180922_192802.jpeg", express.static('IMG_20180922_192802.jpeg'));
 
-<<<<<<< HEAD
+
 app.get('/retrieve-image', (req, res) => {
  Image.find(function(err, images) {
         if (err) {
@@ -122,7 +121,6 @@ app.get('/retrieve-image', (req, res) => {
 
 app.listen(8000, function() {
     console.log("Server is running on Port: " + 8000);
-=======
 
 //Socket Setup
 
@@ -135,7 +133,7 @@ io.on('connection', function(socket){
   socket.on('chat', function(data){
     io.sockets.emit('chat', data);
   });
->>>>>>> origin/HomepageJS
+
 });
 
 
