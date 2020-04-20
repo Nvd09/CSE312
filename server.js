@@ -45,8 +45,8 @@ mongoose
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
 
-var server = app.listen(7004, function() {
-    console.log("Server is running on Port: " + 7004);
+var server = app.listen(8000, function() {
+    console.log("Server is running on Port: " + 8000);
 });
 
 
@@ -74,7 +74,7 @@ app.post('/upload-image', upload.single('profile-picture'), (req, res) => {
     });
     image.save()
         .then(image => {
-            res.status(200).send('image is saved on the disk inside uploads folder, image details added successfully to the databasea nd please go to the path "{localhosthost:8000/retrieve-image"to see the submitted image');
+            res.status(200).send('image is saved on the disk inside uploads folder, image details added successfully to the database and please go to the path "{localhosthost:8000/retrieve-image"to see the submitted image');
         })
         .catch(err => {
             res.status(400).send('saving image details in database failed');
@@ -82,10 +82,10 @@ app.post('/upload-image', upload.single('profile-picture'), (req, res) => {
 
    
      
-  })
+  });
 
 
-});
+
 app.post("/homepage.html", function (req, res) {
   res.sendFile(__dirname + "/homepage.html");
 });
@@ -119,8 +119,7 @@ app.get('/retrieve-image', (req, res) => {
 });
 
 
-app.listen(8000, function() {
-    console.log("Server is running on Port: " + 8000);
+
 
 //Socket Setup
 
