@@ -1,0 +1,5 @@
+Mongoose provides a straight-forward, schema-based solution to model your application data. It includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
+
+Documentation Link - https://mongoosejs.com
+
+License - MIT Licensed

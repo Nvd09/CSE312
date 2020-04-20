@@ -10,12 +10,15 @@ var path = require('path');
 var mongoose = require('mongoose');
 var file_system = require('fs');
 var storage = multer.diskStorage({
+
   destination: function (req, file, cb) {
     cb(null, 'uploads')
   },
   filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now())
+ 
+    cb(null, 'image'+ '-' + Date.now() )
   }
+
 })
  
 var upload = multer({ storage: storage })
@@ -70,6 +73,17 @@ app.use("/chat", express.static('chatui.html'));
 app.use("/homepage.html", express.static('homepage.html'));
 app.use("/chatui.html", express.static('chatui.html'));
 app.use("/user_profile.html", express.static('user_profile.html'));
+app.get('/retrieve-image', (req, res) => {
+ Image.find(function(err, images) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(images);
+        }
+    });
+ 
+
+});
 
 app.listen(8000, function() {
     console.log("Server is running on Port: " + 8000);
