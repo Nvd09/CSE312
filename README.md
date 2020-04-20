@@ -17,3 +17,12 @@ shows who's submitting all the multimedia content.
    The fifth criteria allows users to send direct messages to another user and the messages can only be seen between those two users specifically. There's no functionality for any of these criterias as of now as they'll be implemented in further phases.
       
       
+Phase 2:
+Second Criteria:
+1)go to http://localhost:8000/homepage.html and upload a image in the first button. The image will be saved on the disk and it can be downloaded.
+
+2)
+
+3)The image details such as image name and image_created is saved in our mongodb database and can be retrieved by going to http://localhost:8000/retrieve-image
+
+      
