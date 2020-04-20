@@ -5,12 +5,16 @@ path is used for acessing files. Documentation -> https://nodejs.org/api/path.ht
 
 */
 var express = require('express');
+<<<<<<< HEAD
 
 const multer = require('multer');
 var path = require('path');
 var mongoose = require('mongoose');
 var file_system = require('fs');
 var storage = multer.diskStorage({
+=======
+var socket = require('socket.io');
+>>>>>>> origin/HomepageJS
 
   destination: function (req, file, cb) {
     cb(null, 'uploads')
@@ -28,6 +32,7 @@ var storage = multer.diskStorage({
  
 var upload = multer({ storage: storage })
 var app = express();
+<<<<<<< HEAD
 const db = require("./config/database").mongoURI;
 var Image = require('./user.model');
 mongoose
@@ -39,10 +44,18 @@ mongoose
   )
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
+=======
+var server = app.listen(7004, function() {
+    console.log("Server is running on Port: " + 7004);
+});
+
+
+>>>>>>> origin/HomepageJS
 
 app.use(express.static('public'));
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/welcome.html");
+<<<<<<< HEAD
 })
 
 
@@ -72,6 +85,12 @@ app.post('/upload-image', upload.single('profile-picture'), (req, res) => {
      
   })
 
+=======
+});
+app.post("/homepage.html", function (req, res) {
+  res.sendFile(__dirname + "/homepage.html");
+});
+>>>>>>> origin/HomepageJS
 app.use("/profile", express.static('user_profile.html'));
 
 app.use("/profile", express.static('user_profile.html'));
@@ -84,7 +103,10 @@ app.use("/chat", express.static('chatui.html'));
 app.use("/homepage.html", express.static('homepage.html'));
 app.use("/chatui.html", express.static('chatui.html'));
 app.use("/user_profile.html", express.static('user_profile.html'));
+app.use("/voting.js", express.static('voting.js'));
+app.use("/IMG_20180922_192802.jpeg", express.static('IMG_20180922_192802.jpeg'));
 
+<<<<<<< HEAD
 app.get('/retrieve-image', (req, res) => {
  Image.find(function(err, images) {
         if (err) {
@@ -100,5 +122,20 @@ app.get('/retrieve-image', (req, res) => {
 
 app.listen(8000, function() {
     console.log("Server is running on Port: " + 8000);
+=======
+
+//Socket Setup
+
+
+
+var io= socket(server);
+
+io.on('connection', function(socket){
+  console.log('Socket Conneection has been made');
+  socket.on('chat', function(data){
+    io.sockets.emit('chat', data);
+  });
+>>>>>>> origin/HomepageJS
 });
+
 
