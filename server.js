@@ -5,14 +5,14 @@ path is used for acessing files. Documentation -> https://nodejs.org/api/path.ht
 
 */
 var express = require('express');
-<<<<<<< HEAD
+
 
 const multer = require('multer');
 var path = require('path');
 var mongoose = require('mongoose');
 var file_system = require('fs');
 var storage = multer.diskStorage({
-=======
+
 var socket = require('socket.io');
 >>>>>>> origin/HomepageJS
 
