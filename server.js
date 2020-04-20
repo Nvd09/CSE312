@@ -11,9 +11,9 @@ const multer = require('multer');
 var path = require('path');
 var mongoose = require('mongoose');
 var file_system = require('fs');
-var storage = multer.diskStorage({
 
 var socket = require('socket.io');
+var storage = multer.diskStorage({
 
 
   destination: function (req, file, cb) {
