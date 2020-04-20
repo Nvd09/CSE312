@@ -9,8 +9,8 @@ var socket = require('socket.io');
 
 
 var app = express();
-var server = app.listen(8000, function() {
-    console.log("Server is running on Port: " + 8000);
+var server = app.listen(7004, function() {
+    console.log("Server is running on Port: " + 7004);
 });
 
 
@@ -18,7 +18,10 @@ var server = app.listen(8000, function() {
 app.use(express.static('public'));
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/welcome.html");
-})
+});
+app.post("/homepage.html", function (req, res) {
+  res.sendFile(__dirname + "/homepage.html");
+});
 app.use("/profile", express.static('user_profile.html'));
 app.use("/signin", express.static('welcome.html'));
 app.use("/chat", express.static('chatui.html'));
@@ -37,6 +40,9 @@ var io= socket(server);
 
 io.on('connection', function(socket){
   console.log('Socket Conneection has been made');
+  socket.on('chat', function(data){
+    io.sockets.emit('chat', data);
+  });
 });
 
 

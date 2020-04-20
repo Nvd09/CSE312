@@ -46,41 +46,41 @@
                         <button class="btn waves-effect waves-light deep-purple accent-4" type="button">Follow</button>
                     </div>
                     <br/>
+                </form>
                     <div>    
                         <img class="responsive-img" src="IMG_20180922_192802.jpeg" alt="This is where the sample pic will go">
                     </div>
                     <br/>
                     <div class="left">
                        
-                        <button onclick="voting();" class="btn waves-effect waves-light deep-purple accent-4">Like
+                        <button id="like"class="btn waves-effect waves-light deep-purple accent-4">Like
                             
                             <i class="material-icons right">thumb_up</i>
                         </button>  
-                         <div><p id="votes">0</p> <p>person liked this</p></div> 
-                    </div><br/>
-
-                    <form enctype="multipart/form-data" id="myForm" >
-                        <label style="color:white" id = "myInput" for="form-chat">Chat: </label>
-                        <input id="form-chat" type="text" name="message">
-                        
-                    </form>
-
-
-                    <div class="input-field left" >
-
-                        <form enctype="multipart/form-data" id="myForm" >
-                            <label style="color:white" id = "myInput" for="form-comment">Comment: </label>
-                            <input id="form-comment" type="text" name="message">
-        
-                        </form>
+                         <div><p id="votes">0 person liked this</p></div> 
                     </div>
-                    <div class="right">
-                        <button onclick="sendMessageWithForm();" class="btn waves-effect waves-light deep-purple accent-4" type="submit">
+                    <br/>
+
+
+                    <div>
+                        <!-- <form enctype="multipart/form-data" id="myForm" >
+                            <label style="color:white" id = "myInput" for="form-comment">Comment: </label>
+                            <input id="form-comment" type="text" name="message">      
+                        </form> -->
+                        <input id="comment" type="text" placeholder="Comment"/>
+                        <button id="send">Send</button>
+
+                        <div id="output">This is the output Div</div>
+                        
+                    </div>
+                    <!-- <div class="right">
+                        <button id="send"  class="btn waves-effect waves-light deep-purple accent-4" type="submit">Send
                             <i class="material-icons right">send</i>
                         </button>
-                    </div>
+                    </div> -->
                     
-                </form>
+                    
+                
             </div>
         </div>
     </div>   
