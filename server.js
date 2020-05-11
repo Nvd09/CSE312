@@ -6,7 +6,7 @@ path is used for acessing files. Documentation -> https://nodejs.org/api/path.ht
 */
 var express = require('express');
 var cookieParser = require('cookie-parser')
-const verify_jwt = require("express-jwt");
+var session = require('express-session');
 const multer = require('multer');
 var path = require('path');
 var mongoose = require('mongoose');
@@ -24,15 +24,9 @@ var storage = multer.diskStorage({
  
     cb(null, 'image'+ '-' + Date.now() )
   }
-
-
-
-
-
 })
-const jwt_verification = verify_jwt({    
-  secret: "bangladesh"
-});
+
+
  
 var upload = multer({ storage: storage })
 var app = express();
@@ -52,19 +46,36 @@ mongoose
 var server = app.listen(8000, function() {
     console.log("Server is running on Port: " + 8000);
 });
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
+app.use(session({
+    key: 'bd',
+    secret: 'bangladesh',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        expires: 500000
+    }
+}));
 app.use('/user', user);
 app.use(express.static('public'));
-app.get("/", function (req, res) {
+var session_verification = (req, res, next) => {
+    if (req.session.account && req.cookies.bd) {
+        res.redirect('/profile');
+    } else {
+        next();
+    }    
+};
+app.get("/", session_verification, function (req, res) {
+  
   res.sendFile(__dirname + "/welcome.html");
 
 })
 
 
 
-app.post('/upload-image', upload.single('profile-picture'), (req, res) => {
+app.post('/upload-image', session_verification, upload.single('profile-picture'), (req, res) => {
   console.log(req.file.path);
  var profilepic = file_system.readFileSync(req.file.path);
  
@@ -91,26 +102,53 @@ app.post('/upload-image', upload.single('profile-picture'), (req, res) => {
 
 
 
-app.post("/homepage.html", function (req, res) {
-  res.sendFile(__dirname + "/homepage.html");
+app.get("/homepage.html", function (req, res) {
+  if (req.session.account && req.cookies.bd) {
+        res.sendFile(__dirname + "/homepage.html");
+    }
+    else
+       res.send("You aren't logged in");
 });
 
-app.use("/profile", jwt_verification, express.static('user_profile.html'));
+app.get("/chatui.html", function (req, res) {
+  if (req.session.account && req.cookies.bd) {
+        res.sendFile(__dirname + "/chatui.html");
+    }
+    else
+       res.send("You aren't logged in");
+});
+app.get('/signout', (req, res) => {
+    if (req.session.account && req.cookies.bd) {
+        res.clearCookie('bd');
+        res.redirect('/');
+    } else {
+        res.redirect('/');
+    }
+});
 
 
+app.get("/profile",  (req, res) => {
+    if (req.session.account && req.cookies.bd) {
+        res.sendFile(__dirname + "/user_profile.html");
+    }
+    else
+       res.send("You aren't logged in");
 
+});
+app.get("/user_profile.html",  (req, res) => {
+    if (req.session.account && req.cookies.bd) {
+        res.sendFile(__dirname + "/user_profile.html");
+    }
+    else
+       res.send("You aren't logged in");
 
+});
 
-app.use("/signin", express.static('welcome.html'));
-app.use("/chat", jwt_verification, express.static('chatui.html'));
-app.use("/homepage.html", express.static('homepage.html'));
-app.use("/chatui.html",  jwt_verification).use(express.static('chatui.html'));
-app.use("/user_profile.html", express.static('user_profile.html'));
 app.use("/voting.js", express.static('voting.js'));
 app.use("/IMG_20180922_192802.jpeg", express.static('IMG_20180922_192802.jpeg'));
 
 
-app.get('/retrieve-image', (req, res) => {
+app.get('/retrieve-image',(req, res) => {
  Image.find(function(err, images) {
         if (err) {
             console.log(err);

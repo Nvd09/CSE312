@@ -1,6 +1,5 @@
 const bcrypt = require('bcrypt');
 const express = require('express');
-const jwt = require('jsonwebtoken');
 const login_validation = require('./login_validation');
 const registration_validation = require('./registration_validation');
 const User = require('../user.model');
@@ -67,24 +66,20 @@ router.post('/login', async (req, res) => {
           message: 'Login Failed'
         });
       }
-      if (result) {
-        const token = jwt.sign(
-          {
-            
-            email: user.email,
-            userId: user._id
-          },
-          require('../config/database').secretOrKey,
-          {
-            expiresIn: '1h'
-          }
-        );
-        return res.status(201).cookie('jwt',token, { httpOnly: true,  maxAge: 3600000 }).redirect("/chatui.html");
+      if(!result){
+        res.send("Your Password is incorrect! Go back to root path and log back in");
       }
-      return res.status(401).json({
-        password: 'Wrong password. Try again.'
-      });
-    });
+
+      if (result) {
+        
+    req.session.account = user._id;
+    res.redirect('/profile');
+      
+}
+   
+
+
+       });
   } catch (err) {
     return res.status(500).json({ message: err });
   }

@@ -16,10 +16,6 @@ const login_validation = (info) => {
     errors.email = 'Email is required';
   }
 
-  if (!checker.isLength(info.password, { min: 6, max: 30 })) {
-    errors.password = 'Password must have 6 and 30 chars';
-  }
-
   if (checker.isEmpty(info.password)) {
     errors.password = 'Password is required';
   }
