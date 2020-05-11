@@ -1,4 +1,4 @@
-Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of busboy for maximum efficiency.
+Multer is a node.js middleware for handling multipart/form-data and we have used it for uploading image and save them to disk.
 
 Documentation Link - https://www.npmjs.com/package/multer
 

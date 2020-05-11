@@ -20,7 +20,10 @@ function updateLikes(number){
 
 }
 likeBtn.addEventListener('click', function(){
-     votes++; 
+     if(votes==0)
+        votes=1; 
+     else
+        votes=1;
      updateLikes();
 
 

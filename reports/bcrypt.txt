@@ -1,0 +1,5 @@
+We used bcrypt to hash user passwords.
+
+Documentation Link - https://www.npmjs.com/package/bcrypt
+
+License - MIT Licensed

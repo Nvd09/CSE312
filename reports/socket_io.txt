@@ -1,0 +1,7 @@
+Socket.io is intended to use to create a multidirectioanl communication between our two users so that they can chat.
+
+
+Documentation Link - https://socket.io/docs/
+
+
+License - MIT Licensed

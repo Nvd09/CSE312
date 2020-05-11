@@ -1,0 +1,5 @@
+We are using session based authentication in our social media site and express-session allows us to create a session when a user logs in.
+
+Documentation Link - https://www.npmjs.com/package/express-session
+
+License - MIT Licensed

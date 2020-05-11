@@ -1,0 +1,5 @@
+Cookie parser is used to set a cookie with our secret key once a user log in and destroy the cookie once the user log out.
+Documentation Link - https://www.npmjs.com/package/cookie-parser
+
+
+License - MIT Licensed
