@@ -28,51 +28,56 @@
 
    </br>
     <div class="row ">
-    <form class="col s6 red accent-3 left class="white-text"">
+    <form class="col s6 red accent-3 left class="white-text"" method="post" action="/user/registration">
       <h3 class="center white-text"> Sign Up </h3>
       <div class="row">
         <div class="input-field col s10 class="white-text"" >
-          <input placeholder="First Name" id="first_name" type="text" class="validate" >
+          <input placeholder="First Name" id="first_name" type="text" class="validate" name="first_name">
           <label for="first_name" class="white-text">First Name</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s10">
-          <input id="last_name" type="text" class="validate">
+          <input id="last_name" type="text" class="validate" name="last_name">
           <label for="last_name" class="white-text">Last Name</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s10">
-          <input id="password" type="password" class="validate">
+          <input id="password" type="password" class="validate" name="password">
           <label for="password" class="white-text">Password</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s10">
-          <input id="email" type="email" class="validate">
+          <input id="email" type="email" class="validate" name="email">
           <label for="email" class="white-text">Email</label>
         </div>
       </div>
-      <a class="deep-purple accent-4 btn center">Sign Up</a>
+      <div class="row">
+    <button class="deep-purple accent-4 btn center" type="submit" name="action">Sign Up</button>
+    </div>
+  
     </form>
-    <form class="col s5 pink darken-1 right">
+    <form class="col s5 pink darken-1 right" method="post" action="/user/login">
       <h3 class="center white-text "> Sign In </h3>
       <div class="row">
         <div class="input-field col s10">
-          <input id="email" type="email" class="validate">
-          <label for="email" class="white-text">Email</label>
+          <input id="login_email" type="email" class="validate" name="email">
+          <label for="login_email" class="white-text">Email</label>
         </div>
       </div>
       
       
       <div class="row">
         <div class="input-field col s10">
-          <input id="password" type="password" class="validate">
-          <label for="password" class="white-text">Password</label>
+          <input id="login_password" type="password" class="validate" name="password">
+          <label for="login_password" class="white-text" >Password</label>
         </div>
       </div>
-      <a class="deep-purple accent-4 btn center">Log In</a>
+      <div class="row">
+    <button class="deep-purple accent-4 btn center" type="submit" name="action">Log In</button>
+    </div>
     </form>
   </div>
   
