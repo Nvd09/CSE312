@@ -72,7 +72,7 @@ router.post('/login', async (req, res) => {
 
       if (result) {
         
-    req.session.account = user._id;
+    req.session.account = user.first_name;
     res.redirect('/profile');
       
 }

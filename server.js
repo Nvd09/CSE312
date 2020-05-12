@@ -14,6 +14,7 @@ var file_system = require('fs');
 var user= require('./routes/authRoute');
 var parser = require('body-parser');
 var socket = require('socket.io');
+
 var storage = multer.diskStorage({
 
 
@@ -30,6 +31,7 @@ var storage = multer.diskStorage({
  
 var upload = multer({ storage: storage })
 var app = express();
+app.set('view engine', 'ejs'); 
 
 const db = require("./config/database").mongoURI;
 var Image = require('./image.model');
@@ -104,6 +106,7 @@ app.post('/upload-image', session_verification, upload.single('profile-picture')
 
 app.get("/homepage.html", function (req, res) {
   if (req.session.account && req.cookies.bd) {
+
         res.sendFile(__dirname + "/homepage.html");
     }
     else
@@ -129,7 +132,8 @@ app.get('/signout', (req, res) => {
 
 app.get("/profile",  (req, res) => {
     if (req.session.account && req.cookies.bd) {
-        res.sendFile(__dirname + "/user_profile.html");
+        console.log(req.session.account);
+        res.render("profile", { name : req.session.account});
     }
     else
        res.send("You aren't logged in");
