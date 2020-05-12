@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>My Posts</title> 
+    <style type="text/css" media="screen"> 
+        body { 
+            background-color: skyblue; 
+            text-decoration-color: black; 
+            
+        } 
+    </style> 
+</head> 
+  
+<body> 
+    <h1 style="color:blue;font-size:50px">Posts of <%=data.name%> are: </h1>
+    <br>
+      
+    <ul> 
+        <%data.posts.forEach((item)=>{%> 
+        <li><%=item%></li>  
+        <%});%> 
+    </ul> 
+</body> 
+  
+</html> 

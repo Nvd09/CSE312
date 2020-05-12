@@ -16,7 +16,7 @@ const UserSchema = new Schema({
   followers: {
     type: [String]
   },
-  following: {
+  posts: {
     type: [String]
   },
   password: {

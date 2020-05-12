@@ -6,7 +6,20 @@ const User = require('../user.model');
 
 const router = new express.Router();
 
+router.post('/post-submission', async (req, res) => {
+  User.findById(req.session.account, function(err, user) {
+       
+      user.posts.push(req.body.posts);
 
+            user.save().then(user => {
+                res.send('Your Post is updated in database and go back and click on my posts in navbar to see those posts!');
+            })
+            .catch(err => {
+                res.status(400).send("Post Update was not possible");
+            });
+            req.session.posts.push(req.body.posts);
+    });
+});
 
 router.post('/registration', async (req, res) => {
   const { errors, isValid } = registration_validation(req.body);
@@ -72,7 +85,9 @@ router.post('/login', async (req, res) => {
 
       if (result) {
         
-    req.session.account = user.first_name;
+    req.session.account = user._id;
+    req.session.first_name= user.first_name;
+    req.session.posts= user.posts;
     res.redirect('/profile');
       
 }

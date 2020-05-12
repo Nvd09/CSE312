@@ -133,7 +133,17 @@ app.get('/signout', (req, res) => {
 app.get("/profile",  (req, res) => {
     if (req.session.account && req.cookies.bd) {
         console.log(req.session.account);
-        res.render("profile", { name : req.session.account});
+        res.render("profile", { name : req.session.first_name});
+    }
+    else
+       res.send("You aren't logged in");
+
+});
+app.get("/myposts",  (req, res) => {
+    if (req.session.account && req.cookies.bd) {
+        console.log(req.session.account);
+        var data = { posts: req.session.posts, name : req.session.first_name};
+        res.render("posts", {data: data});
     }
     else
        res.send("You aren't logged in");

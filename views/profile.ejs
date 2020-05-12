@@ -18,15 +18,27 @@
         <ul class="right">
             <li><a href="homepage.html">Homepage</a></li>
             <li><a href="chatui.html">Messages</a></li>
+            <li><a href="myposts">My Posts</a></li>
+
             <li><a href="profile">Profile</a></li>
+
             <li><a href="signout">Sign Out</a></li>
         </ul>
     </nav>
  </div>
-  <center style="color:blue;font-size:50px;""> 
+  <center style="color:blue;font-size:50px;"> 
         Welcome <%=name%>, keep communicating and make friends here. 
-    </center> 
- <!-- My Friends -->
+  </center> 
+  <h3 style="font-size:40px;"> Make a post here: </h3>
+  <h1> What's on your mind?</h1>
+  <form method="post" action="/user/post-submission">
+    <div class="row">
+    <input name="posts" type="text" style = "border-radius: 25px;border: 2px solid #609;padding: 20px; width: 500px;height: 200px;">
+     </div>
+       <div class="row">
+      <button class="deep-purple accent-4 btn center" type="submit" name="status">Post Status</button>
+      </div>
+  </form>
  <div class="container">
   <h2>My Friends!</h2>
   <ul class="collection with-header">
