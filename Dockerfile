@@ -1,24 +1,20 @@
-FROM ubuntu:18.04
+FROM node:10
 
-RUN apt-get update 
 
 ENV HOME /root
 WORKDIR /root
 
-COPY . . 
+COPY package*.json ./
 
-RUN apt-get update --fix-missing
-RUN apt-get install -y nodejs
-RUN apt-get install -y npm
-RUN mv ./node_modules ./node_modules.tmp \
-  && mv ./node_modules.tmp ./node_modules \
-  && npm install 
-RUN echo '{ "allow_root": true  }' > /root/.bowerrc
+RUN npm install
 
-
-
-# RUN npm install
+COPY . .
 
 EXPOSE 8000
 
-CMD ["node", "server.js"]
+CMD ["npm", "start"]
+
+
+
+
+
